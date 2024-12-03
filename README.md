@@ -1,6 +1,6 @@
 # PodmanWiz
 
-**PodmanWiz** is a versatile Bash script that simplifies container management with Podman. It provides streamlined commands to create, manage, and customize containers across multiple Linux distributions.
+**PodmanWiz** is Bash script that simplifies container management with Podman. It allows you to create, manage, and customize containers across multiple Linux distributions.
 
 
 --- 
