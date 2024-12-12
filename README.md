@@ -1,17 +1,17 @@
-# PodmanWiz
 
-**PodmanWiz** is Bash script that simplifies container management with Podman. It allows you to create, manage, and customize containers across multiple Linux distributions.
+# **PodmanWiz**
 
+**PodmanWiz** is a Bash script that simplifies container management with Podman. It allows you to create, manage, and customize containers across multiple Linux distributions. The script is now more flexible and configurable using environment variables.
 
---- 
+---
 
 ## Key Features
 
-- **Customizable Base Images**: Use your preferred base image (e.g., `alpine`, `ubuntu`, `fedora`) with the `-b` flag.
+- **Customizable Base Images**: Use your preferred base image (e.g., `alpine`, `ubuntu`, `fedora`) with the `-b` flag. Default image is `docker.io/priximmo/buster-systemd-ssh`, but you can set the `BASE_IMAGE` environment variable for different base images.
 - **Multi-Container Management**: Create, start, stop, or remove multiple containers in one command.
-- **SSH Integration**: Automatically configures SSH for easy access to your containers.
+- **SSH Integration**: Automatically configures SSH for easy access to your containers, including validation for the presence of SSH keys.
 - **Ansible Inventory Support**: Generates an Ansible inventory file for seamless automation workflows.
-
+- **Error Handling**: The script now includes error handling for Podman operations (e.g., container creation, starting, and SSH setup) to ensure smooth execution.
 
 ---
 
@@ -30,7 +30,7 @@
    chmod +x podmanwiz.sh
    ```
 
-3. Make sure Podman is installed on your system.
+3. Make sure **Podman** is installed on your system.
 
 ---
 
@@ -89,8 +89,11 @@ Run the script with the appropriate flags for your use case:
 
 - **Podman**: Ensure Podman is installed and properly configured.
 - **Root or Sudo Access**: Some operations require administrative privileges.
-- **Public Key Authentication**: SSH setup assumes the presence of `~/.ssh/id_rsa.pub`.
+- **Public Key Authentication**: SSH setup assumes the presence of `~/.ssh/id_rsa.pub`. If it doesn't exist, the script will display an error message.
+- **Environment Variables**: Optionally, you can set the following environment variables:
+  - `BASE_IMAGE`: Custom base image for containers.
+  - `DATA_DIR`: Directory to store container data (default: `/srv/data`).
+  - `ANSIBLE_DIR`: Directory for generating the Ansible inventory file (default: `ansible_dir`).
+  - `CONTAINER_USER`: The user for SSH and container management (default: `SUDO_USER` or `$USER`).
 
 ---
-
-
