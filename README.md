@@ -20,7 +20,7 @@
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/<your-username>/PodmanWiz.git
+   git clone https://github.com/Umair-Khurshid/PodmanWiz.git
    cd PodmanWiz
    ```
 
